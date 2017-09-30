@@ -1,0 +1,31 @@
+<button (click)="startTest()" *ngIf="!testStart">Начать тест</button>
+
+<div class="wrapper" *ngIf="testStart">
+	<section class="container test-box" *ngIf="!isFinish">
+		<div class="test-box__question">
+			<div class="title">{{ currentQuestion.title }}</div>
+			<div class="options" >
+				<ul class="options__box">
+					<li class="options__answer-box" [class.correct] = "isWrong ? answer.trueAnswer : ''"  *ngFor="let answer of currentQuestion.answerList" (click)="checkAnswer(currentQuestion, answer, li)" #li><span class="answer">{{ answer.title }}</span></li>
+				</ul>
+				
+			</div>
+			<div class="explanation" *ngIf="!statusAnswer">
+				<div class="explanation__text">
+					{{ currentQuestion.explanation }}
+
+				</div>
+				<button (click)="questionNext(currentQuestion)">Далее</button>
+			</div>
+		</div>
+	</section>
+	<div class="container result-block-box" *ngIf="isFinish">
+		<div class="result-block">
+			Вы одветили правильно на {{ countTrueMaerk }} вопорса/ов из {{ countQuestions + 1 }}
+		</div>
+		<button (click)="restart()">Повторить</button>
+		
+	</div>
+
+
+</div>
