@@ -1,8 +1,9 @@
 var express 	= require('express'),
 	path 		= require('path'),
 	bodyParser 	= require('body-parser'),
-	index 		= require('./routes/index')
-	questions 	= require('./routes/questions')
+	index 		= require('./routes/index'),
+	questions 	= require('./routes/questions'),
+	answer 	= require('./routes/answer'),
 	port 		= 3000;
 
 var app = express();
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/', index);
 app.use('/api', questions);
+app.use('/api', answer);
 
 
 app.listen(port, function () {

@@ -12,8 +12,9 @@ import { Answer } from '../../../answer';
 export class QuestionsComponent implements OnInit{
 
 
-	questionList: Question[];
-	currentQuestion: Question;
+	questionList: any[];
+	answerList: any[];
+	currentQuestion: any;
 	isFinish = false;
 	statusAnswer = true;
 	countTrueMark = 0;
@@ -93,10 +94,11 @@ export class QuestionsComponent implements OnInit{
 	}
 
 	ngOnInit(){
+
 		this.questionService.getQuestions()
 			.subscribe(questions => {
 				this.questionList = questions;
-			})
+			});
 	}
 	
 }

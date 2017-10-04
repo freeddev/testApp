@@ -3,10 +3,11 @@
 <div class="wrapper" *ngIf="testStart">
 	<section class="container test-box" *ngIf="!isFinish">
 		<div class="test-box__question">
-			<div class="title">{{ currentQuestion.title }}</div>
+			<div class="title">{{ currentQuestion.questionTitle }}</div>
+			<div class="theme">Тема: {{ currentQuestion.theme }}</div>
 			<div class="options" >
 				<ul class="options__box">
-					<li class="options__answer-box" [class.correct] = "isWrong ? answer.trueAnswer : ''"  *ngFor="let answer of currentQuestion.answerList" (click)="checkAnswer(currentQuestion, answer, li)" #li><span class="answer">{{ answer.title }}</span></li>
+					<li class="options__answer-box" [class.correct] = "isWrong ? answer.trueAnswer : ''"  *ngFor="let answer of currentQuestion.answerList" (click)="checkAnswer(currentQuestion, answer, li)" #li><span class="answer">{{ answer.titleAnswer }}</span></li>
 				</ul>
 				
 			</div>

@@ -8,7 +8,7 @@ export class QuestionService{
 		console.log("Question Service Init")
 	}
 	getQuestions(){
-		return this.http.get('http://localhost:3000/api/questions')
+		return this.http.get('http://localhost:3000/api/question')
 		.map(res => res.json());
 	}
 }
