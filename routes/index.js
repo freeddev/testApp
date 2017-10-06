@@ -4,8 +4,18 @@ var express = require('express'),
 router.get('/', function (req, res, next) {
 	res.render('index')
 })
-router.get('/test', function (req, res, next) {
+router.get('/test', ensureAuthenticated, function (req, res, next) {
 	res.render('test.html')
 })
+
+
+function ensureAuthenticated(req, res, next){
+	if (req.isAuthenticated()) {
+		return next();
+	}else{
+		req.flash('error_msg', 'You are not logged in!');
+		res.redirect('./user/login');
+	}
+}
 
 module.exports = router;
