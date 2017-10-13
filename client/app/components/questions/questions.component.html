@@ -20,12 +20,6 @@
 			</div>
 		</div>
 	</section>
-	<div class="container result-block-box" *ngIf="isFinish">
-		<div class="result-block">
-			Вы одветили правильно на {{ countTrueMark }} вопорса/ов из {{ countQuestions + 1 }}
-		</div>
-		<button (click)="restart()">Повторить</button>
-	</div>
 
-
+	<result *ngIf="isFinish" [countTrueMark] = "countTrueMark" [countQuestions] = "countQuestions" (restart) = "restart()"></result>
 </div>

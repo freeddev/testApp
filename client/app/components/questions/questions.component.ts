@@ -36,8 +36,6 @@ export class QuestionsComponent implements OnInit{
 		this.statusAnswer = true; // обновляем статус
 		this.isWrong = false; // обновляем статус
 
-		console.log(this.statusAnswer)
-
 		this.finishTest();
 		if(position < this.countQuestions)
 			this.currentQuestion = this.questionList[++position]; // Следующий вопрос
@@ -74,7 +72,6 @@ export class QuestionsComponent implements OnInit{
 
 	finishTest(){
 		if (this.countQuestions === this.questionList.indexOf(this.currentQuestion)) {
-			console.log('finish')
 			this.isFinish = !this.isFinish;
 		}
 		
@@ -86,8 +83,6 @@ export class QuestionsComponent implements OnInit{
 		this.countTrueMark = 0;
 		this.currentQuestion = this.questionList[0];
 		this.isFinish = !this.isFinish;
-
-
 	}
 	
 	constructor(private questionService: QuestionService){

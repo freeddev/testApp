@@ -37,14 +37,12 @@ router.get('/question', function(req, res, next){
 
 			if (questionList[i].idquestion === answerList[j].idquestion) {
 				questionList[i].answerList.push(answerList[j]);
-				//questionList[i].answerList.push(answerList[j].idquestion)
 			}
 		}
 	}
 
 	for(let i = 0; i < questionList.length; i++){
 		questionList[i].theme = ''
-		console.log(themequestion[i]);
 		if (questionList[i].idquestion === themequestion[i].idthemequestion) {
 			questionList[i].theme = themequestion[i].title;
 		}
