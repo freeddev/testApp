@@ -10,7 +10,6 @@ var express 			= require('express'),
 	LocalStrategy		= require('passport-local').Strategy,
 	index 				= require('./routes/index'),
 	questions 			= require('./routes/questions'),
-	answer 				= require('./routes/answer'),
 	user				= require('./routes/user'),
 	port 				= 3000;
 
@@ -72,7 +71,6 @@ app.use(function(req, res, next){
 
 app.use('/', index);
 app.use('/api', questions);
-app.use('/api', answer);
 app.use('/user', user)
 
 // Set port

@@ -25,6 +25,9 @@ export class QuestionsComponent implements OnInit{
 
 
 	startTest(){
+		this.questionList.sort(this.compareRandomQuestion);
+
+
 		this.currentQuestion = this.questionList[0];
 		this.testStart = true;
 		this.countQuestions = this.questionList.length - 1;
@@ -81,8 +84,14 @@ export class QuestionsComponent implements OnInit{
 		this.statusAnswer = true; // обновляем статус
 		this.isWrong = false; // обновляем статус
 		this.countTrueMark = 0;
+		this.questionList.sort(this.compareRandomQuestion);
 		this.currentQuestion = this.questionList[0];
 		this.isFinish = !this.isFinish;
+
+		
+	}
+	compareRandomQuestion(){
+		return Math.random() - 0.5;
 	}
 	
 	constructor(private questionService: QuestionService){
@@ -93,6 +102,7 @@ export class QuestionsComponent implements OnInit{
 		this.questionService.getQuestions()
 			.subscribe(questions => {
 				this.questionList = questions;
+				
 			});
 	}
 	
